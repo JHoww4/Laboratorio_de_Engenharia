@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 3</title>
+
+    <script>
+        let numero = prompt("Informe um número inteiro: ");
+        let resultado = 1;
+        while (isNaN(numero) == true || numero < 0) {
+            alert("Valor inválido.");
+            numero = prompt("Informe um número inteiro: ");
+        }
+        for (i = 0; i < numero; i++) {
+            resultado += resultado * i;
+        }
+        alert("O resultado no numero fatorial é " + resultado);
+    </script>
+
+</head>
+<body>
+</body>
+</html>

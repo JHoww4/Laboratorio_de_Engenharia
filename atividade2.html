@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Atividade 2</title>
+  
+  <script>
+    let cont = 0;
+    let numero = prompt("Digite um numero!", "");
+    while (isNaN(numero) == true || numero < 0) {
+      alert("valor invalido!");
+    }
+    for (i = 0; i <= numero; i++) {
+      if (numero % i == 0) {
+        cont += 1;
+      }
+    }
+    if (cont == 2) {
+      alert(" é um número primo.");
+    } else {
+      alert("não é um número primo.");
+    }
+  </script>
+
+</head>
+<body>
+</body>
+</html>
