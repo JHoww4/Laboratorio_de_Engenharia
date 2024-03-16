@@ -1,12 +1,34 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atividade Relogio</title>
 </head>
 <body>
-    <h2>Atividade Relogio em tempo real <h2>
-    
+    <h1>Relógio em Tempo Real</h1>
+    <div id="clock"></div>
+
+    <script>
+        function atualizarRelogio() {
+            const agora = new Date();
+            const hora = agora.getHours();
+            const minutos = agora.getMinutes();
+            const segundos = agora.getSeconds();
+
+            const horaFormatada = hora < 10 ? `0${hora}` : hora;
+            const minutosFormatados = minutos < 10 ? `0${minutos}` : minutos;
+            const segundosFormatados = segundos < 10 ? `0${segundos}` : segundos;
+
+            const horaAtual = `${horaFormatada}:${minutosFormatados}:${segundosFormatados}`;
+
+            // o relogio será atulizado de acordo com a hora atual, pelo menos ate onde foi chekado ele se limita apenas 
+            // ao horario de brasilerio.
+            document.getElementById("clock").textContent = horaAtual;
+        }
+        setInterval(atualizarRelogio, 1000);
+        atualizarRelogio();
+    </script>
 </body>
 </html>
