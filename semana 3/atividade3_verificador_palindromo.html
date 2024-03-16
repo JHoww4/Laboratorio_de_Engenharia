@@ -3,39 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verificador de Palvavras Palíndromo</title>
+    <title>Verificador de Palavras Palíndromo</title>
 </head>
+
 <body>
     <h2>Verificador de Palíndromos</h2>
     <form id="formPalindromo">
         <label for="palavra">Digite uma palavra:</label>
         <input type="text" id="palavra" name="palavra" />
-        <button type="submit">Verificar</button>
+        <button type="submit">Verificar e Adicionar</button>
     </form>
-
-    <div id="resultado"></div>
 
     <script>
         var form = document.getElementById("formPalindromo");
         var input = document.getElementById("palavra");
-       
 
         form.addEventListener("submit", function (event) {
             event.preventDefault();
-            verificarPalindromo();
+            verificarPalindromoEAdicionar();
         });
+        function verificarPalindromoEAdicionar() {
+            const palavra = input.value.trim();
 
-        function verificarPalindromo() {
-            const palavra = input.value.trim().toLowerCase();
-            const reverso = palavra.split("").reverse().join("");
-
-            if (palavra === reverso) {
-                alert`${palavra} é um palíndromo.`;
-            } else {
-                alert`${palavra} não é um palíndromo.`;
+            if (palavra === "") {// casso os campos entejam vazio 
+                alert("Por favor, insira uma palavra.");
+                return;
             }
+
+            if (!isNaN(palavra)) { // casso seja um numero sera acionado alert
+                alert("Por favor, insira uma palavra, não um número.");
+                return; 
+            }
+            const reverso = palavra.split("").reverse().join("");
+            if (palavra === reverso) {
+                alert(`${palavra} é um palíndromo.`);
+            } else {
+                alert(`${palavra} não é um palíndromo.`);
+            }
+            arrayPalavras.push(palavra);
+            atualizarListaPalavras();
+            input.value = "";
         }
     </script>
-
 </body>
 </html>
