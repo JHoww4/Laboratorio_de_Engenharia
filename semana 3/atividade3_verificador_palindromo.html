@@ -6,6 +6,36 @@
     <title>Verificador de Palvavras Palíndromo</title>
 </head>
 <body>
-    
+    <h2>Verificador de Palíndromos</h2>
+    <form id="formPalindromo">
+        <label for="palavra">Digite uma palavra:</label>
+        <input type="text" id="palavra" name="palavra" />
+        <button type="submit">Verificar</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        var form = document.getElementById("formPalindromo");
+        var input = document.getElementById("palavra");
+        var resultado = document.getElementById("resultado");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            verificarPalindromo();
+        });
+
+        function verificarPalindromo() {
+            const palavra = input.value.trim().toLowerCase();
+            const reverso = palavra.split("").reverse().join("");
+
+            if (palavra === reverso) {
+                resultado.textContent = `${palavra} é um palíndromo.`;
+            } else {
+                resultado.textContent = `${palavra} não é um palíndromo.`;
+            }
+        }
+    </script>
+
 </body>
 </html>
