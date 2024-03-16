@@ -7,7 +7,7 @@
     <title>Atividade Relogio</title>
 </head>
 <body>
-    <h1>Relógio em Tempo Real</h1>
+    <h1>Atividade Relógio em Tempo Real</h1>
     <div id="clock"></div>
 
     <script>
@@ -22,9 +22,11 @@
             const segundosFormatados = segundos < 10 ? `0${segundos}` : segundos;
 
             const horaAtual = `${horaFormatada}:${minutosFormatados}:${segundosFormatados}`;
-
-            // o relogio será atulizado de acordo com a hora atual, pelo menos ate onde foi chekado ele se limita apenas 
-            // ao horario de brasilerio.
+            
+            //obs: o relogio será atualizado de acordo com a hora atual, pelo menos ate onde foi checado. 
+            // Ele também e limitado a mostrar a hora atual do seu computador se estiviver 
+            // com alguns minutos atrasado ou horas ele ira mostrar a hora do compuatador ou do dispositivo que foi utilizado
+            // exatamente como e mostrado.   
             document.getElementById("clock").textContent = horaAtual;
         }
         setInterval(atualizarRelogio, 1000);
