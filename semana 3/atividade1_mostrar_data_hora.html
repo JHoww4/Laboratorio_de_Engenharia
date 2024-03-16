@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atividade Mostrar data e horas Atuais</title>
+  </head>
+  <body>
+    <h2>Data, Hora e Dia da Semana Atual</h2>
+    <div id="dataHoraDiaSemana"></div>
+
+    <script>
+      function exibirDataHoraDiaSemanaAtual() {
+        let data = new Date();
+        let diaSemanaNumero = data.getDay();
+        let dia = data.getDate();
+        let mes = data.getMonth();
+        let ano = data.getFullYear();
+        let horas = data.getHours();
+        let minutos = data.getMinutes();
+        let segundos = data.getSeconds();
+
+        const meses = [
+          "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+          "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+        ];
+
+        const diasSemana = [
+          "Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"
+        ];
+        let dataHoraDiaSemanaFormatada = `${diasSemana[diaSemanaNumero]}, ${dia} de ${meses[mes]} de ${ano}, ${horas}:${minutos}:${segundos}`;
+
+        return dataHoraDiaSemanaFormatada;
+      }
+
+      let dataHoraDiaSemanaAtualElement = document.getElementById("dataHoraDiaSemana");
+      dataHoraDiaSemanaAtualElement.textContent = exibirDataHoraDiaSemanaAtual();
+    </script>
+  </body>
+</html>

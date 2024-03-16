@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atividade 4</title>
+  </head>
+  <body>
+    <script>
+      var inputData = prompt("Digite um tipo de dado");
+      console.log(inputData);
+      if (inputData != "") {
+        var checkType = confirm("Você deseja verificar o tipo de dado?");
+        if (checkType) {
+          if (!isNaN(inputData)) {
+            document.body.innerHTML = "O dado inserido é um número";
+          } else {
+            document.body.innerHTML = "O dado inserido é uma string";
+          }
+        } else {
+          document.body.innerHTML = "Obrigado por visitar esta página.";
+        }
+      } else {
+        document.body.innerHTML = "Você não inseriu nenhum dado.";
+      }
+    </script>
+  </body>
+</html>
