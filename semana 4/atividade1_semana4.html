@@ -4,69 +4,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./stlye.css">
-    <title>formulario</title>
+    <link rel="stylesheet" href="stlye.css">
+    <title>Formulário</title>
 </head>
-
 <body>
     <section class="section_main">
-        <div>
-            <h1>Formulario de cadastro:</h1>
-            <div class="div_cnter">
+        <div class="div_cnter">
+            <h1>Formulário de cadastro:</h1>
+            <div>
                 <div>
-                    <label for="nome1">Nome: </label> <br>
-                    <input class="div_input_nome " type="text" id="nome" name="nome" placeholder="Digite seu nome completo">
+                    <label for="nome">Nome: </label> <br>
+                    <input class="forms" type="text" id="nome" name="nome" placeholder="Digite seu nome completo">
                 </div>
                 <div>
-                    <label for="nome1">Email: </label> <br>
-                    <input class="div_input_email" type="text" id="email" name="email" placeholder="fulano@gmail.com">
+                    <label for="email">Email: </label> <br>
+                    <input class="forms" type="text" id="email" name="email" placeholder="fulano@gmail.com">
                 </div>
                 <div>
-                    <label for="nome1">Data nacimento: </label> <br>
-                    <input class="forms" type="date" id="data-nascimento" name="data-nascimento"
-                        placeholder="Data de Nascimento">
+                    <label for="data-nascimento">Data de Nascimento: </label> <br>
+                    <input class="forms" type="date" id="data-nascimento" name="data-nascimento">
                 </div>
                 <div>
-                    <label for="nome1">Telefone Fixo: </label> <br>
-                    <input class="forms" type="text" id="telefone_fixo" name="telefone fixo"
+                    <label for="telefone_fixo">Telefone Fixo: </label> <br>
+                    <input class="forms" type="text" id="telefone_fixo" name="telefone_fixo"
+                        placeholder="(99)9999-9999">
+                </div>
+                <div id="telefone_celular_div">
+                    <label for="telefone_celular">Telefone Celular: </label> <br>
+                    <input class="forms" type="text" id="telefone_celular" name="telefone_celular"
                         placeholder="(99)9999-9999">
                 </div>
                 <div>
-                    <label for="nome1">Telefone Celular: </label> <br>
-                    <input class="forms" type="text" id="telefone_celular" name="telefone celular"
-                        placeholder="(99)9999-9999">
-                </div>
-                <div>
-                    <input type="radio" id="professor" name="professor" value="Professor">
+                    <input type="radio" id="professor" name="tipo" value="Professor" checked onchange="tipoChange()">
                     <label for="professor">Professor</label><br>
-
-                    <input type="radio" id="aluno" name="aluno" value="Aluno">
+                    <input type="radio" id="aluno" name="tipo" value="Aluno" onchange="tipoChange()">
                     <label for="aluno">Aluno</label><br>
                 </div>
-                <div>
-                    <label for="nome1">Area: </label> <br>
+                <div id="area_div">
+                    <label for="area">Área: </label> <br>
                     <input class="forms" type="text" id="area" name="area" placeholder="Digite sua área de atuação">
                 </div>
-                <div>
-                    <label for="nome1">Matricula: </label> <br>
+                <div id="matricula_div">
+                    <label for="matricula">Matricula: </label> <br>
                     <input class="forms" type="text" id="matricula" name="matricula"
-                        placeholder=" digite sua matricula">
+                        placeholder="Digite sua matricula">
                 </div>
-                <div>
-                    <label for="nome1">Lattes: </label> <br>
+                <div id="curso_div" style="display: none;">
+                    <label for="curso">Curso: </label> <br>
+                    <input class="forms" type="text" id="curso" name="curso"
+                        placeholder="Digite seu curso">
+                </div>
+                <div id="lattes_div">
+                    <label for="lattes">Lattes: </label> <br>
                     <input class="forms" type="text" id="lattes" name="lattes"
-                        placeholder=" Digite aqui o seu endereço para seu lattes">
+                        placeholder="Digite aqui o seu endereço para seu lattes">
                 </div>
                 <br>
                 <div class="butao">
-                    <input type="submit" value="Enviar">
-                    <input type="reset" value="Limpar">
-                    <br>
+                    <input type="submit" value="Enviar" onclick="verificarCampos()">
+                    <input type="button" value="Limpar" onclick="limparCampos()">
                 </div>
+                <p id="mensagem_aviso" style="color: red;"></p>
             </div>
         </div>
     </section>
 
-</body>
+    <section class="section_main" id="dados_enviados">
+        <h2>Dados enviados:</h2>
+        <p id="dados"></p>
+    </section>
 
+    <script>
+        function verificarCampos() {
+            var nome = document.getElementById("nome").value;
+            var email = document.getElementById("email").value;
+            var dataNascimento = document.getElementById("data-nascimento").value;
+            var telefoneFixo = document.getElementById("telefone_fixo").value;
+            var telefoneCelular = document.getElementById("telefone_celular").value;
+            var tipo = document.querySelector('input[name="tipo"]:checked');
+            var matricula = document.getElementById("matricula").value;
+            var curso = document.getElementById("curso").value;
+
+            if (nome === "" || email === "" || dataNascimento === "" || telefoneFixo === ""
+                || tipo === null || tipo.value === "Aluno" && (matricula === "" || curso === "")) {
+                document.getElementById("mensagem_aviso").innerText = "Por favor, preencha todos os campos!";
+                return;
+            }
+
+            enviarFormulario();
+        }
+
+        function enviarFormulario() {
+            var nome = document.getElementById("nome").value;
+            var email = document.getElementById("email").value;
+            var dataNascimento = document.getElementById("data-nascimento").value;
+            var telefoneFixo = document.getElementById("telefone_fixo").value;
+            var telefoneCelular = document.getElementById("telefone_celular").value;
+            var tipo = document.querySelector('input[name="tipo"]:checked').value;
+            var area = document.getElementById("area").value;
+            var matricula = document.getElementById("matricula").value;
+            var curso = document.getElementById("curso").value;
+            var lattes = document.getElementById("lattes").value;
+
+            var dadosEnviados = "Nome: " + nome + "<br>" +
+                "Email: " + email + "<br>" +
+                "Data de Nascimento: " + dataNascimento + "<br>" +
+                "Telefone Fixo: " + telefoneFixo + "<br>" +
+                "Telefone Celular: " + telefoneCelular + "<br>" +
+                "Tipo: " + tipo + "<br>";
+
+            if (tipo === "Professor") {
+                dadosEnviados += "Área de Atuação: " + area + "<br>" +
+                    "Matrícula: " + matricula + "<br>" +
+                    "Lattes: " + lattes;
+            } else if (tipo === "Aluno") {
+                dadosEnviados += "Matrícula: " + matricula + "<br>" +
+                    "Curso: " + curso;
+            }
+
+            document.getElementById("dados").innerHTML = dadosEnviados;
+            document.getElementById("mensagem_aviso").innerText = "";
+        }
+
+        function limparCampos() {
+            document.getElementById("nome").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("data-nascimento").value = "";
+            document.getElementById("telefone_fixo").value = "";
+            document.getElementById("telefone_celular").value = "";
+            document.getElementById("area").value = "";
+            document.getElementById("matricula").value = "";
+            document.getElementById("curso").value = "";
+            document.getElementById("lattes").value = "";
+            document.getElementById("dados").innerHTML = ""; // Limpar os dados enviados anteriormente
+            document.getElementById("mensagem_aviso").innerText = ""; // Limpar a mensagem de aviso
+        }
+
+        function tipoChange() {
+            var tipo = document.querySelector('input[name="tipo"]:checked').value;
+
+            if (tipo === "Professor") {
+                document.getElementById("area_div").style.display = "block";
+                document.getElementById("matricula_div").style.display = "block";
+                document.getElementById("curso_div").style.display = "none"; // Esconder campo Curso
+                document.getElementById("lattes_div").style.display = "block";
+                document.getElementById("telefone_celular_div").style.display = "block";
+            } else if (tipo === "Aluno") {
+                document.getElementById("area_div").style.display = "none";
+                document.getElementById("matricula_div").style.display = "block";
+                document.getElementById("curso_div").style.display = "block"; // Mostrar campo Curso
+                document.getElementById("lattes_div").style.display = "none";
+                document.getElementById("telefone_celular_div").style.display = "block"; // Mostrar campo Telefone Celular
+            }
+        }
+    </script>
+</body>
 </html>

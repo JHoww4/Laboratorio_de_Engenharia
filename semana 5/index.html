@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Pessoas</title>
+</head>
+<body>
+    <div id="contador"></div>
+
+    <script>
+        function atualizarContador(homens, mulheres) {
+            var contadorDiv = document.getElementById("contador");
+            contadorDiv.innerHTML = "";
+            var titulo = document.createElement("h2");
+            titulo.textContent = "Contador de Pessoas";
+            titulo.style.fontFamily = "Arial, sans-serif";
+            titulo.style.fontSize = "24px";
+            titulo.style.textAlign = "center";
+            
+            var totalPessoas = homens + mulheres;
+
+            var quantidadeHomens = document.createElement("p");
+            quantidadeHomens.textContent = "Homens: " + homens;
+            quantidadeHomens.style.fontSize = "18px";
+
+            var quantidadeMulheres = document.createElement("p");
+            quantidadeMulheres.textContent = "Mulheres: " + mulheres;
+            quantidadeMulheres.style.fontSize = "18px";
+
+            var quantidadeTotal = document.createElement("p");
+            quantidadeTotal.textContent = "Total: " + totalPessoas;
+            quantidadeTotal.style.fontSize = "18px";
+
+            contadorDiv.appendChild(titulo);
+            contadorDiv.appendChild(quantidadeHomens);
+            contadorDiv.appendChild(quantidadeMulheres);
+            contadorDiv.appendChild(quantidadeTotal);
+
+            contadorDiv.style.padding = "20px";
+            contadorDiv.style.border = "2px solid #ccc";
+            contadorDiv.style.borderRadius = "8px";
+            contadorDiv.style.width = "200px";
+            contadorDiv.style.margin = "0 auto";
+        }
+
+        var homens = 0;
+        var mulheres = 0;
+        function adicionarHomem() {
+            homens++;
+            atualizarContador(homens, mulheres);
+        }
+        function adicionarMulher() {
+            mulheres++;
+            atualizarContador(homens, mulheres);
+        }
+        function resetarContador() {
+            homens = 0;
+            mulheres = 0;
+            atualizarContador(homens, mulheres);
+        }
+    </script>
+    <button onclick="adicionarHomem()">Adicionar Homem</button>
+    <button onclick="adicionarMulher()">Adicionar Mulher</button>
+    <button onclick="resetarContador()">Resetar Contador</button>
+</body>
+</html>
