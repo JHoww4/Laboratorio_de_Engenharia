@@ -9,59 +9,107 @@
     <div id="contador"></div>
 
     <script>
-        function atualizarContador(homens, mulheres) {
+        var homens = 0;
+        var mulheres = 0;
+
+        function atualizarContador() {
             var contadorDiv = document.getElementById("contador");
             contadorDiv.innerHTML = "";
+
             var titulo = document.createElement("h2");
             titulo.textContent = "Contador de Pessoas";
             titulo.style.fontFamily = "Arial, sans-serif";
             titulo.style.fontSize = "24px";
             titulo.style.textAlign = "center";
-            
-            var totalPessoas = homens + mulheres;
+
+            var divHomem = document.createElement("div");
+            divHomem.style.textAlign = "center";
+            var imgHomem = document.createElement("img");
+            imgHomem.src = "homem.png"; 
+            imgHomem.alt = "Homem";
+            imgHomem.style.width = "100px"; 
+            var adicionarHomemBtn = document.createElement("button");
+            adicionarHomemBtn.textContent = "+";
+            adicionarHomemBtn.onclick = function() {
+                homens++;
+                atualizarContador();
+            };
+            var removerHomemBtn = document.createElement("button");
+            removerHomemBtn.textContent = "-";
+            removerHomemBtn.onclick = function() {
+                if (homens > 0) {
+                    homens--;
+                    atualizarContador();
+                }
+            };
+            divHomem.appendChild(imgHomem);
+            divHomem.appendChild(adicionarHomemBtn);
+            divHomem.appendChild(removerHomemBtn);
 
             var quantidadeHomens = document.createElement("p");
             quantidadeHomens.textContent = "Homens: " + homens;
             quantidadeHomens.style.fontSize = "18px";
+            quantidadeHomens.style.textAlign = "center";
+
+            var divMulher = document.createElement("div");
+            divMulher.style.textAlign = "center";
+            var imgMulher = document.createElement("img");
+            imgMulher.src = "mulher.png";
+            imgMulher.alt = "Mulher";
+            imgMulher.style.width = "100px"; 
+            var adicionarMulherBtn = document.createElement("button");
+            adicionarMulherBtn.textContent = "+";
+            adicionarMulherBtn.onclick = function() {
+                mulheres++;
+                atualizarContador();
+            };
+            var removerMulherBtn = document.createElement("button");
+            removerMulherBtn.textContent = "-";
+            removerMulherBtn.onclick = function() {
+                if (mulheres > 0) {
+                    mulheres--;
+                    atualizarContador();
+                }
+            };
+            divMulher.appendChild(imgMulher);
+            divMulher.appendChild(adicionarMulherBtn);
+            divMulher.appendChild(removerMulherBtn);
 
             var quantidadeMulheres = document.createElement("p");
             quantidadeMulheres.textContent = "Mulheres: " + mulheres;
             quantidadeMulheres.style.fontSize = "18px";
+            quantidadeMulheres.style.textAlign = "center";
 
             var quantidadeTotal = document.createElement("p");
-            quantidadeTotal.textContent = "Total: " + totalPessoas;
+            quantidadeTotal.textContent = "Total: " + (homens + mulheres);
             quantidadeTotal.style.fontSize = "18px";
+            quantidadeTotal.style.textAlign = "center";
+
+            var resetarContadorBtn = document.createElement("button");
+            resetarContadorBtn.textContent = "Resetar Contador";
+            resetarContadorBtn.onclick = function() {
+                homens = 0;
+                mulheres = 0;
+                atualizarContador();
+            };
+            resetarContadorBtn.style.display = "block"; 
+            resetarContadorBtn.style.margin = "0 auto";
 
             contadorDiv.appendChild(titulo);
+            contadorDiv.appendChild(divHomem);
             contadorDiv.appendChild(quantidadeHomens);
+            contadorDiv.appendChild(divMulher);
             contadorDiv.appendChild(quantidadeMulheres);
             contadorDiv.appendChild(quantidadeTotal);
+            contadorDiv.appendChild(resetarContadorBtn);
 
             contadorDiv.style.padding = "20px";
             contadorDiv.style.border = "2px solid #ccc";
             contadorDiv.style.borderRadius = "8px";
-            contadorDiv.style.width = "200px";
+            contadorDiv.style.width = "300px";
             contadorDiv.style.margin = "0 auto";
         }
-
-        var homens = 0;
-        var mulheres = 0;
-        function adicionarHomem() {
-            homens++;
-            atualizarContador(homens, mulheres);
-        }
-        function adicionarMulher() {
-            mulheres++;
-            atualizarContador(homens, mulheres);
-        }
-        function resetarContador() {
-            homens = 0;
-            mulheres = 0;
-            atualizarContador(homens, mulheres);
-        }
+        atualizarContador();
     </script>
-    <button onclick="adicionarHomem()">Adicionar Homem</button>
-    <button onclick="adicionarMulher()">Adicionar Mulher</button>
-    <button onclick="resetarContador()">Resetar Contador</button>
 </body>
 </html>
