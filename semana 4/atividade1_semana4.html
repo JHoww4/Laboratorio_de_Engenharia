@@ -69,7 +69,7 @@
         </div>
     </section>
 
-    <section class="section_main" id="dados_enviados">
+    <section class="dados_enviados" id="dados_enviados">
         <h2>Dados enviados:</h2>
         <p id="dados"></p>
     </section>
@@ -136,8 +136,8 @@
             document.getElementById("matricula").value = "";
             document.getElementById("curso").value = "";
             document.getElementById("lattes").value = "";
-            document.getElementById("dados").innerHTML = ""; // Limpar os dados enviados anteriormente
-            document.getElementById("mensagem_aviso").innerText = ""; // Limpar a mensagem de aviso
+            document.getElementById("dados").innerHTML = ""; 
+            document.getElementById("mensagem_aviso").innerText = ""; 
         }
 
         function tipoChange() {
@@ -146,15 +146,15 @@
             if (tipo === "Professor") {
                 document.getElementById("area_div").style.display = "block";
                 document.getElementById("matricula_div").style.display = "block";
-                document.getElementById("curso_div").style.display = "none"; // Esconder campo Curso
+                document.getElementById("curso_div").style.display = "none"; 
                 document.getElementById("lattes_div").style.display = "block";
                 document.getElementById("telefone_celular_div").style.display = "block";
             } else if (tipo === "Aluno") {
                 document.getElementById("area_div").style.display = "none";
                 document.getElementById("matricula_div").style.display = "block";
-                document.getElementById("curso_div").style.display = "block"; // Mostrar campo Curso
+                document.getElementById("curso_div").style.display = "block";
                 document.getElementById("lattes_div").style.display = "none";
-                document.getElementById("telefone_celular_div").style.display = "block"; // Mostrar campo Telefone Celular
+                document.getElementById("telefone_celular_div").style.display = "block"; 
             }
         }
     </script>
