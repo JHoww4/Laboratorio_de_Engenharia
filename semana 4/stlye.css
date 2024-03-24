@@ -1,1 +1,20 @@
 /* Formulario */
+.section_main {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 2%;
+    margin-left: 25%;
+    width: 50vw;
+    height: 50%;
+    background: rgba(0, 0, 0, 0.41);
+    box-shadow: 10px 10px 10px 10px rgba(62, 76, 93, 0.5);
+    border-radius: 30px;
+    background: rgb(223, 223, 223);
+  }
+  .div_cnter{
+    margin-left: 7%;
+    margin-top: 3%;
+  }
+  .div_cnter h3 {
+    font-size: 20px;
+  }

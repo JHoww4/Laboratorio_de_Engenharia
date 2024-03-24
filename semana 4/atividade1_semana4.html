@@ -4,55 +4,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./stlye.css">
     <title>formulario</title>
 </head>
 
 <body>
-    <section>
+    <section class="section_main">
         <div>
             <h1>Formulario de cadastro:</h1>
-            <div>
-                <label for="nome1">Nome: </label> <br>
-                <input class="forms" type="text" id="nome" name="nome" placeholder="Digite seu nome completo">
-            </div>
-            <div>
-                <label for="nome1">Email: </label> <br>
-                <input class="forms" type="text" id="email" name="email" placeholder="fulano@gmail.com">
-            </div>
-            <div>
-                <label for="nome1">Data nacimento: </label> <br>
-                <input class="forms" type="date" id="data-nascimento" name="data-nascimento"
-                    placeholder="Data de Nascimento">
-            </div>
-            <div>
-                <label for="nome1">Telefone Fixo: </label> <br>
-                <input class="forms" type="text" id="telefone_fixo" name="telefone fixo" placeholder="(99)9999-9999">
-            </div>
-            <div>
-                <label for="nome1">Telefone Celular: </label> <br>
-                <input class="forms" type="text" id="telefone_celular" name="telefone celular"
-                    placeholder="(99)9999-9999">
-            </div>
-            <div>
-                <input type="radio" id="professor" name="professor" value="Professor">
-                <label for="professor">Professor</label><br>
+            <div class="div_cnter">
+                <div>
+                    <label for="nome1">Nome: </label> <br>
+                    <input class="div_input_nome " type="text" id="nome" name="nome" placeholder="Digite seu nome completo">
+                </div>
+                <div>
+                    <label for="nome1">Email: </label> <br>
+                    <input class="div_input_email" type="text" id="email" name="email" placeholder="fulano@gmail.com">
+                </div>
+                <div>
+                    <label for="nome1">Data nacimento: </label> <br>
+                    <input class="forms" type="date" id="data-nascimento" name="data-nascimento"
+                        placeholder="Data de Nascimento">
+                </div>
+                <div>
+                    <label for="nome1">Telefone Fixo: </label> <br>
+                    <input class="forms" type="text" id="telefone_fixo" name="telefone fixo"
+                        placeholder="(99)9999-9999">
+                </div>
+                <div>
+                    <label for="nome1">Telefone Celular: </label> <br>
+                    <input class="forms" type="text" id="telefone_celular" name="telefone celular"
+                        placeholder="(99)9999-9999">
+                </div>
+                <div>
+                    <input type="radio" id="professor" name="professor" value="Professor">
+                    <label for="professor">Professor</label><br>
 
-                <input type="radio" id="aluno" name="aluno" value="Aluno">
-                <label for="aluno">Aluno</label><br>
+                    <input type="radio" id="aluno" name="aluno" value="Aluno">
+                    <label for="aluno">Aluno</label><br>
+                </div>
+                <div>
+                    <label for="nome1">Area: </label> <br>
+                    <input class="forms" type="text" id="area" name="area" placeholder="Digite sua área de atuação">
+                </div>
+                <div>
+                    <label for="nome1">Matricula: </label> <br>
+                    <input class="forms" type="text" id="matricula" name="matricula"
+                        placeholder=" digite sua matricula">
+                </div>
+                <div>
+                    <label for="nome1">Lattes: </label> <br>
+                    <input class="forms" type="text" id="lattes" name="lattes"
+                        placeholder=" Digite aqui o seu endereço para seu lattes">
+                </div>
+                <br>
+                <div class="butao">
+                    <input type="submit" value="Enviar">
+                    <input type="reset" value="Limpar">
+                    <br>
+                </div>
             </div>
-            <div>
-                <label for="nome1">Area: </label> <br>
-                <input class="forms" type="text" id="area" name="area" placeholder="Digite sua área de atuação">
-            </div>
-            <div>
-                <label for="nome1">Matricula: </label> <br>
-                <input class="forms" type="text" id="matricula" name="matricula" placeholder=" digite sua matricula">
-            </div>
-            <div>
-                <label for="nome1">Lattes: </label> <br>
-                <input class="forms" type="text" id="lattes" name="lattes" placeholder=" Digite aqui o seu endereço para seu lattes">
-            </div>
-
         </div>
     </section>
 
