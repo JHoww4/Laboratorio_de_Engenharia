@@ -1,0 +1,51 @@
+/* Formulario */
+.section_main {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 2%;
+    margin-left: 25%;
+    width: 50vw;
+    height: 50%;
+    background: rgba(0, 0, 0, 0.41);
+    box-shadow: 10px 10px 10px 10px rgba(62, 76, 93, 0.5);
+    border-radius: 30px;
+    background: rgb(255, 255, 255);
+  }
+  .div_cnter{
+    margin-left: 25%;
+    margin-top: 3%;
+  }
+  .div_cnter h1 {
+    font-size: 20px;
+    padding: 15px;
+  }
+  .forms{
+    height: 20px;
+    width: 25em;
+    margin: 1.5em auto;
+    padding: 1em;
+    border:2px solid lightgray;   
+}
+.forms-btn-cadastrar{
+  color: white;
+  border: none;
+  height: 2em;
+  width: 25em;
+  margin: 2em;
+}
+.butao{
+  margin-left: 20%;
+  margin-top: 3%;
+}
+.dados_enviados{
+  margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 2%;
+    margin-left: 25%;
+    width: 50vw;
+    height: 50%;
+}
+#mensagem_aviso{
+  margin-left: 10%;
+  margin-top: 3%;
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Formulário de Carro</title>
+</head>
+
+<body>
+    <section class="section_main">
+        <div class="div_cnter">
+            <h1>Formulário de Carro</h1>
+            <form id="carForm">
+                <label for="marca">Marca: </label><br>
+                <input class="forms" type="text" id="marca" name="marca" placeholder="Digite a marca do carro"><br>
+
+                <label for="modelo">Modelo: </label><br>
+                <input class="forms" type="text" id="modelo" name="modelo" placeholder="Digite o modelo do carro"><br>
+
+                <label for="ano">Ano: </label><br>
+                <input class="forms" type="number" id="ano" name="ano" min="1900" max="2099" placeholder="Digite o ano do carro"><br>
+
+                <label for="cor">Cor: </label><br>
+                <input class="forms" type="text" id="cor" name="cor" placeholder="Digite a cor do carro"><br>
+
+                <label for="kilometragem">Kilometragem: </label><br>
+                <input class="forms" type="number" id="kilometragem" name="kilometragem" min="0" placeholder="Informe a kilometragem"><br>
+
+                <label for="valor_fipe">Valor FIPE: </label><br>
+                <input class="forms" type="number" id="valor_fipe" name="valor_fipe" min="0" placeholder="Informe o FIPE do carro"><br>
+
+                <div>
+                    <button class="butao" type="button" onclick="criarCarro()">Enviar</button>
+                </div>
+            </form>
+        </div>
+        <div class="resultado"></div>
+    </section>
+
+    <script>
+        class Carro {
+            constructor(marca, modelo, ano, cor, kilometragem, valorFipe) {
+                this.marca = marca;
+                this.modelo = modelo;
+                this.ano = ano;
+                this.cor = cor;
+                this.kilometragem = kilometragem;
+                this.valorFipe = valorFipe;
+            }
+
+            anosUtilizacao() {
+                const dataAtual = new Date();
+                const anos = dataAtual.getFullYear() - this.ano;
+                return anos;
+            }
+
+            valorMercado() {
+                if (this.kilometragem <= 30000) {
+                    return this.valorFipe * 1.1;
+                } else if (this.kilometragem > 30000 && this.kilometragem <= 50000) {
+                    return this.valorFipe;
+                } else {
+                    return this.valorFipe * 0.9;
+                }
+            }
+        }
+
+        function criarCarro() {
+            const marca = document.getElementById('marca').value;
+            const modelo = document.getElementById('modelo').value;
+            const ano = parseInt(document.getElementById('ano').value);
+            const cor = document.getElementById('cor').value;
+            const kilometragem = parseInt(document.getElementById('kilometragem').value);
+            const valorFipe = parseFloat(document.getElementById('valor_fipe').value);
+
+            const carro = new Carro(marca, modelo, ano, cor, kilometragem, valorFipe);
+            mostrarResultado(carro);
+        }
+
+        function mostrarResultado(carro) {
+            const resultadoDiv = document.querySelector('.resultado');
+            resultadoDiv.innerHTML = '';
+            resultadoDiv.innerHTML += '<h2>Informações do Carro:</h2>';
+            resultadoDiv.innerHTML += '<p>Marca: ' + carro.marca + '</p>';
+            resultadoDiv.innerHTML += '<p>Modelo: ' + carro.modelo + '</p>';
+            resultadoDiv.innerHTML += '<p>Ano: ' + carro.ano + '</p>';
+            resultadoDiv.innerHTML += '<p>Cor: ' + carro.cor + '</p>';
+            resultadoDiv.innerHTML += '<p>Kilometragem: ' + carro.kilometragem + '</p>';
+            resultadoDiv.innerHTML += '<p>Valor FIPE: R$ ' + carro.valorFipe.toFixed(2) + '</p>';
+            resultadoDiv.innerHTML += '<p>Anos de Utilização: ' + carro.anosUtilizacao() + '</p>';
+            resultadoDiv.innerHTML += '<p>Valor de Mercado: R$ ' + carro.valorMercado().toFixed(2) + '</p>';
+        }
+    </script>
+</body>
+
+</html>
