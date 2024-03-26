@@ -75,6 +75,34 @@
     </section>
 
     <script>
+        class Pessoa {
+            constructor(nome, email, dataNascimento, telefoneFixo, telefoneCelular, tipo) {
+                this.nome = nome;
+                this.email = email;
+                this.dataNascimento = dataNascimento;
+                this.telefoneFixo = telefoneFixo;
+                this.telefoneCelular = telefoneCelular;
+                this.tipo = tipo;
+            }
+        }
+
+        class Aluno extends Pessoa {
+            constructor(nome, email, dataNascimento, telefoneFixo, telefoneCelular, matricula, curso) {
+                super(nome, email, dataNascimento, telefoneFixo, telefoneCelular, "Aluno");
+                this.matricula = matricula;
+                this.curso = curso;
+            }
+        }
+
+        class Professor extends Pessoa {
+            constructor(nome, email, dataNascimento, telefoneFixo, telefoneCelular, areaAtuacao, matricula, lattes) {
+                super(nome, email, dataNascimento, telefoneFixo, telefoneCelular, "Professor");
+                this.areaAtuacao = areaAtuacao;
+                this.matricula = matricula;
+                this.lattes = lattes;
+            }
+        }
+
         function verificarCampos() {
             var nome = document.getElementById("nome").value;
             var email = document.getElementById("email").value;
@@ -85,8 +113,7 @@
             var matricula = document.getElementById("matricula").value;
             var curso = document.getElementById("curso").value;
 
-            if (nome === "" || email === "" || dataNascimento === "" || telefoneFixo === ""
-                || tipo === null || tipo.value === "Aluno" && (matricula === "" || curso === "")) {
+            if (nome === "" || email === "" || dataNascimento === "" || telefoneFixo === "" || tipo === null || (tipo.value === "Aluno" && (matricula === "" || curso === ""))) {
                 document.getElementById("mensagem_aviso").innerText = "Por favor, preencha todos os campos!";
                 return;
             }
@@ -136,8 +163,8 @@
             document.getElementById("matricula").value = "";
             document.getElementById("curso").value = "";
             document.getElementById("lattes").value = "";
-            document.getElementById("dados").innerHTML = ""; 
-            document.getElementById("mensagem_aviso").innerText = ""; 
+            document.getElementById("dados").innerHTML = "";
+            document.getElementById("mensagem_aviso").innerText = "";
         }
 
         function tipoChange() {
@@ -146,7 +173,7 @@
             if (tipo === "Professor") {
                 document.getElementById("area_div").style.display = "block";
                 document.getElementById("matricula_div").style.display = "block";
-                document.getElementById("curso_div").style.display = "none"; 
+                document.getElementById("curso_div").style.display = "none";
                 document.getElementById("lattes_div").style.display = "block";
                 document.getElementById("telefone_celular_div").style.display = "block";
             } else if (tipo === "Aluno") {
@@ -154,7 +181,7 @@
                 document.getElementById("matricula_div").style.display = "block";
                 document.getElementById("curso_div").style.display = "block";
                 document.getElementById("lattes_div").style.display = "none";
-                document.getElementById("telefone_celular_div").style.display = "block"; 
+                document.getElementById("telefone_celular_div").style.display = "block";
             }
         }
     </script>
