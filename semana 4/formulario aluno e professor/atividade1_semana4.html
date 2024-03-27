@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stlye.css">
+    <link rel="stylesheet" href="./stlye.css">
     <title>Formulário</title>
 </head>
+
 <body>
     <section class="section_main">
         <div class="div_cnter">
@@ -109,11 +110,19 @@
             var dataNascimento = document.getElementById("data-nascimento").value;
             var telefoneFixo = document.getElementById("telefone_fixo").value;
             var telefoneCelular = document.getElementById("telefone_celular").value;
-            var tipo = document.querySelector('input[name="tipo"]:checked');
+            var tipo = document.querySelector('input[name="tipo"]:checked').value;
             var matricula = document.getElementById("matricula").value;
             var curso = document.getElementById("curso").value;
+            var area = document.getElementById("area").value;
+            var lattes = document.getElementById("lattes").value;
 
-            if (nome === "" || email === "" || dataNascimento === "" || telefoneFixo === "" || tipo === null || (tipo.value === "Aluno" && (matricula === "" || curso === ""))) {
+            if (nome === "" || email === "" || dataNascimento === "" || telefoneFixo === "" || telefoneCelular === "" ||
+                (tipo === "Aluno" && (matricula === "" || curso === ""))) {
+                document.getElementById("mensagem_aviso").innerText = "Por favor, preencha todos os campos!";
+                return;
+            }
+
+            if (tipo === "Professor" && (area === "" || matricula === "" || lattes === "")) {
                 document.getElementById("mensagem_aviso").innerText = "Por favor, preencha todos os campos!";
                 return;
             }
