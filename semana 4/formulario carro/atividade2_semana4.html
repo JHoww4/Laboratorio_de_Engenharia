@@ -75,6 +75,11 @@
             const kilometragem = parseInt(document.getElementById('kilometragem').value);
             const valorFipe = parseFloat(document.getElementById('valor_fipe').value);
 
+            if (!marca || !modelo || isNaN(ano) || !cor || isNaN(kilometragem) || isNaN(valorFipe)) {
+                alert('Por favor, preencha todos os campos corretamente.');
+                return;
+            }
+
             const carro = new Carro(marca, modelo, ano, cor, kilometragem, valorFipe);
             mostrarResultado(carro);
         }
@@ -94,5 +99,4 @@
         }
     </script>
 </body>
-
 </html>
