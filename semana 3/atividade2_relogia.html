@@ -28,8 +28,9 @@
             // com alguns minutos atrasado ou horas ele ira mostrar a hora do compuatador ou do dispositivo que foi utilizado
             // exatamente como e mostrado.   
             document.getElementById("clock").textContent = horaAtual;
+            setTimeout(atualizarRelogio, 1000);
+            
         }
-        setTimeout(atualizarRelogio, 1000);
         atualizarRelogio();
     </script>
 </body>
