@@ -1,0 +1,7 @@
+#div_center{
+    background: red;
+    margin-left: 25%;
+    margin-right: 25%;
+    padding: 1rem;
+    display: flex;
+}
