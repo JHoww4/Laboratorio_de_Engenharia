@@ -4,16 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Calculadora</title>
+    <title>Calculadora JavaScript</title>
 </head>
 <body>
-    <div id="div_center">
-        <h1>a</h1>
-    </div>
+    <div id="calculator" class="calculator"></div>
+    <script src="script.js"></script>
     <script>
-         
-
-        function Calculadora(){}
+        class Calculator {
+            constructor() {
+                this.display = document.createElement('div');
+                this.display.classList.add('display');
+                this.display.textContent = '0';
+        
+                this.buttonsDiv = document.createElement('div');
+                this.buttonsDiv.classList.add('buttons');
+        
+                this.buttons = [
+                    '1', '2', '3', '+',
+                    '4', '5', '6', '-',
+                    '7', '8', '9', 'x',
+                    'AC', '0', '=', '÷',
+                ];
+        
+                this.buttons.forEach(button => {
+                    const buttonElement = document.createElement('button');
+                    buttonElement.textContent = button;
+                    buttonElement.classList.add('button');
+                    buttonElement.addEventListener('click', () => this.handleClick(button));
+                    this.buttonsDiv.appendChild(buttonElement);
+                });
+        
+                this.currentExpression = '';
+            }
+        
+            render(containerId) {
+                const container = document.getElementById(containerId);
+                if (!container) {
+                    console.error(`Container with id ${containerId} not found.`);
+                    return;
+                }
+        
+                container.appendChild(this.display);
+                container.appendChild(this.buttonsDiv);
+            }
+        
+            handleClick(value) {
+                if (value === '=') {
+                    try {
+                        this.currentExpression = eval(this.currentExpression);
+                        this.display.textContent = this.currentExpression;
+                    } catch (error) {
+                        this.display.textContent = 'Error';
+                        this.currentExpression = '';
+                    }
+                } else if (value === 'C') {
+                    this.display.textContent = '0';
+                    this.currentExpression = '';
+                } else {
+                    this.currentExpression += value;
+                    this.display.textContent = this.currentExpression;
+                }
+            }
+        }
+        const calculator = new Calculator();
+        calculator.render('calculator');     
     </script>
 </body>
 </html>
