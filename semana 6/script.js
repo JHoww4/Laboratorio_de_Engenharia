@@ -77,4 +77,7 @@ class Calculator {
     }
 }
 const calculator = new Calculator();
-calculator.render('calculator'); 
+calculator.render('calculator');      
+// 1-falhas da Calculadora que não comsegui ajustar quando colcar a virgula valor não sera " 0,numero"-> sera apenas a " , ".
+// 2-quando realizar qual tipor de funçao a Calculadora ira aguar a numero tipo 2+2= 4 casso digite um outro numero ficara 41, mais
+// ao pertar o botao AC ira resetar os numero.

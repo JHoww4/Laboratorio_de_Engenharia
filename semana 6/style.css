@@ -1,11 +1,12 @@
 .calculator {
-    width: 300px;
+    width: 340px; /* Aumentando um pouco a largura */
     margin: 100px auto;
     background-color: #040304;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
 }
+
 .display {
     background-color: #e8e8e8;
     border: 1px solid #ccc;
@@ -18,11 +19,13 @@
     line-height: 60px;
     overflow: hidden;
 }
+
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
+    grid-gap: 15px; /* Aumentando o espaçamento entre os botões */
 }
+
 .button {
     background-color: #d4d4d4;
     border: 1px solid #ccc;
@@ -30,14 +33,18 @@
     width: 75px;
     height: 75px;
     font-size: 1.5em;
-    border-radius: 5px;
     border-radius: 50%;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 .button:hover {
     background-color: #bbb;
 }
+
 .button-zero {
     grid-column: span 2; /* Estica o botão zero */
 }
