@@ -45,6 +45,8 @@
     background-color: #bbb;
 }
 
-.button-zero {
+.button_zero {
     grid-column: span 2; /* Estica o botão zero */
+    width: 160px;
+    height: 100px;
 }
